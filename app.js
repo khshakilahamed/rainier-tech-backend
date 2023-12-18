@@ -5,6 +5,7 @@ const app = express();
 
 const globalErrorHandler = require("./src/app/middlewares/globalErrorHandler");
 const authRoutes = require("./src/app/routes/auth.route");
+const courseRoutes = require("./src/app/routes/course.route");
 
 const corsOptions = {
   origin: true,
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use("/api/auth", authRoutes);
+app.use("/api/course", courseRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

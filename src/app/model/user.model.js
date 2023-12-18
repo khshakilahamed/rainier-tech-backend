@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      select: 0,
     },
   },
   {
@@ -20,7 +19,7 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", async function (next) {
-  const hashPass = await bcrypt.hash(this.password, 12);
+  const hashPass = await bcrypt.hash(this.password, process.env.SALT_ROUNDS);
   this.password = hashPass;
 
   next();
