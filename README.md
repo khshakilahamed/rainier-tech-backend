@@ -12,6 +12,17 @@ or,
 yarn
 ```
 
+setup .env file-
+
+```env
+DATABASE_URL= <your database url>
+PORT=5000
+SALT_ROUNDS=12
+
+JWT_SECRET=rainier-technologies
+JWT_EXPIRE="365d"
+```
+
 ## Functional Requirements
 
 ### User
