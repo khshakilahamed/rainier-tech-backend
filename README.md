@@ -58,3 +58,49 @@ JWT_EXPIRE="365d"
 - `GET /api/course/6580a7bc32698d834649b133` - get single course
 - `PATCH /api/course/6580a7bc32698d834649b133` - update a course
 - `DELETE /api/course/6580a7bc32698d834649b133` - Delete a course
+
+## Sample data
+
+Register-
+
+```json
+{
+  "email": "shakil@gmail.com",
+  "password": "123456"
+}
+```
+
+Login-
+
+```json
+{
+  "email": "shakil@gmail.com",
+  "password": "123456"
+}
+```
+
+create a course-
+
+```json
+{
+  "name": "Introduction to Web Development",
+  "description": "A Comprehensive Introduction to Web Development.",
+  "price": 5000,
+  "duration": "8 weeks",
+  "level": "Beginner",
+  "topics": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "RESTful APIs"
+  ],
+  "schedule": {
+    "startDate": "2023-02-15",
+    "endDate": "2023-04-10",
+    "classDays": ["Monday", "Wednesday", "Friday"],
+    "classTime": "18:00 - 20:00"
+  }
+}
+```
