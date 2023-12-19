@@ -1,3 +1,7 @@
+## Important links-
+
+- [Live Link](https://rainier-technologies.vercel.app/)
+
 ## Installation and setup
 
 How to install-
@@ -15,7 +19,7 @@ yarn
 setup .env file-
 
 ```env
-DATABASE_URL= <your database url>
+DATABASE_URL= <your mongoDB database url>
 PORT=5000
 SALT_ROUNDS=12
 
@@ -27,7 +31,8 @@ JWT_EXPIRE="365d"
 
 ### User
 
-- User can register, login.
+- User can register.
+- User can login.
 
 ### Course
 
