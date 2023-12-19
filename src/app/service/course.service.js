@@ -1,15 +1,42 @@
 const ApiError = require("../../errors/ApiError");
 const httpStatus = require("http-status");
 const Course = require("../model/course.model");
+const { courseSearchableFields } = require("../utils/course");
 
 const create = async (data) => {
   const course = await Course.create(data);
   return course;
 };
 
-const getCourses = async () => {
-  const courses = await Course.find();
-  return courses;
+const getCourses = async (searchTerm, limit = 10, page = 1) => {
+  const skip = (page - 1) * limit;
+
+  const search = searchTerm
+    ? {
+        $or: courseSearchableFields.map((field) => ({
+          [field]: {
+            $regex: searchTerm,
+            $options: "i",
+          },
+        })),
+      }
+    : {};
+
+  const courses = await Course.find(search)
+    .sort({ createdAt: "desc" })
+    .skip(skip)
+    .limit(limit);
+
+  const total = await Course.countDocuments(search);
+
+  return {
+    meta: {
+      page: parseInt(page),
+      per_page: parseInt(limit),
+      total: total,
+    },
+    data: courses,
+  };
 };
 
 const getSingleCourse = async (id) => {

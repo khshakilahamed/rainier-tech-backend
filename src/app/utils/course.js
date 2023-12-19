@@ -1,0 +1,1 @@
+exports.courseSearchableFields = ["name", "level"];

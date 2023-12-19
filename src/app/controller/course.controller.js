@@ -16,7 +16,8 @@ const create = async (req, res, next) => {
 
 const getCourses = async (req, res, next) => {
   try {
-    const result = await courseService.getCourses();
+    const { searchTerm, per_page, page } = req.query;
+    const result = await courseService.getCourses(searchTerm, per_page, page);
 
     res.status(200).json({
       status: "success",

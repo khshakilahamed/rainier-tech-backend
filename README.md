@@ -54,6 +54,7 @@ JWT_EXPIRE="365d"
 
 - `POST /api/course/create`
 - `GET /api/course`
+- `GET /api/course?searchTerm=introduction&page=1&per_page=10` - search by name & level
 - `GET /api/course/6580a7bc32698d834649b133` - get single course
 - `PATCH /api/course/6580a7bc32698d834649b133` - update a course
 - `DELETE /api/course/6580a7bc32698d834649b133` - Delete a course
